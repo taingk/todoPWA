@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<link>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="theme-color" content="#68cfd0">
+<meta name="description" content="Todo list" />
+<link rel="manifest" href="manifest.json" />
+<link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen, projection" defer />
+<title>TodoList</title>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('sw.js', {
+        scope: '/',
+      });
+    });
+  }
+</script>
+</head>
+
+<body>
+  <noscript>Active JavaScript</noscript>
+  <h2 class="center-align">Todo List</h2>
+  <div id="app">
+    <input type="text" placeholder="Titre" id="title">
+    <input type="text" placeholder="Description" id="content">
+    <a class="waves-effect waves-light btn" id="submit">Poster</a>
+    <ul class="card" id="list"></ul>
+  </div>
+  <script type="module" src="js/app.js" async></script>
+  <script nomodule>
+    const script = document.createElement('script');
+    script.src = 'js/app.js';
+    document.head.appendChild(script);
+  </script>
+</body>
+
+</html>
